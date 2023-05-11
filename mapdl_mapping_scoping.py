@@ -48,4 +48,8 @@ class MAPDLmapping:
     
     # ------ return scoped DOF list in current mapping sorting ------
     def scoped_DOF(self):
-        return self.scoping.mapping.DOF_num.to_numpy()
+        if self.scoping.mapping.empty:
+            DOFs = []
+        else:
+            DOFs = self.scoping.mapping.DOF_num.to_numpy()
+        return DOFs

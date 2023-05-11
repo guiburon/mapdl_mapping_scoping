@@ -34,12 +34,12 @@ class MAPDLmapping:
         if not(set(self.scoping.DOFtypes).issubset(self.scoping.valid_DOFtypes)):
             raise ValueError("scope_mapping: scoping.DOFtypes: supported scoping DOF types are " + str(self.scoping.valid_DOFtypes))
         
-        if self.scoping.nodes:  # if not empty node list
+        if len(self.scoping.nodes) > 0:  # if not empty node list
             self.scoping.mapping = self.mapping[self.mapping.node_num.isin(self.scoping.nodes)]
         else:
             self.scoping.mapping = copy(self.mapping) # deep copy
             
-        if self.scoping.DOFtypes:   # if not empty DOF list
+        if len(self.scoping.DOFtypes) > 0:   # if not empty DOF list
             self.scoping.mapping = self.scoping.mapping[self.scoping.mapping.DOF_type.isin(self.scoping.DOFtypes)]
     
     # ------ return global DOF list in current mapping sorting ------

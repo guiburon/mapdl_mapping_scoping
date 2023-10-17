@@ -12,7 +12,7 @@ class MAPDLmappingScoping:
         
 class MAPDLmapping:
     def __init__(self, mapping_file):
-        self.mapping = pd.read_csv(mapping_file, sep='\s+', lineterminator='\n', header=None, skiprows=1)
+        self.mapping = pd.read_csv(mapping_file, sep='\s+', header=None, skiprows=1)
         self.mapping.columns = ["DOF_num","node_num","DOF_type"]
         self.scoping = MAPDLmappingScoping()
         
